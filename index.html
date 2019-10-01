@@ -38,29 +38,49 @@
                     <button class="btn btn-primary fa fa-search" type="submit" value="Submit"></button>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem;" id="cityList"></div>
+                <div style="width: 18rem;" id="cityList"></div>
             </div>
 
-            <div class="card col-8"> 
+            <div class="col-8">
+                <div class="card">
                 <div class="card-body">
                 <h2 id="cityName">City
                     <img src="">
                 </h2>
-                    <div class="card-body">
+                    <div>
                         <div class="temp"></div>
                         <div class="humidity"></div>
                         <div class="wind"></div>
                     </div>
                 </div>
-                <div class="row">
+                </div>
+                    <div class="card">
                     <div class="card-body" id="fiveDay">
                         <h4>5-Day Forecast</h4>
-                        <div class="card-body" id="first">1</div>
-                        <div class="card-body" id="second">2</div>
-                        <div class="card-body" id="third">3</div>
-                        <div class="card-body" id="fourth">4</div>
-                        <div class="card-body" id="five">5</div>
+                        <div class="container row">
+                        <div class="col-sm forecast border m-1" id="first">1
+                            <div class="firstTemp"></div>
+                            <div class="firstHumidity"></div>
+                        </div>
+                        <div class="col-sm forecast border m-1" id="second">2
+                            <div class="secondTemp"></div>
+                            <div class="secondHumidity"></div>
+                        </div>
+                        <div class="col-sm forecast border m-1" id="third">3
+                            <div class="thirdTemp"></div>
+                            <div class="thirdHumidity"></div>
+                        </div>
+                        <div class="col-sm forecast border m-1" id="fourth">4
+                            <div class="fourthTemp"></div>
+                            <div class="fourthHumidity"></div>
+                        </div>
+                        <div class="col-sm forecast border m-1" id="five">5
+                            <div class="fiveTemp"></div>
+                            <div class="fiveHumidity"></div>
+                        </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 

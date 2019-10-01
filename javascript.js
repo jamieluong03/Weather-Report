@@ -6,12 +6,11 @@ let input = $("input");
 button.on("click", function(){
     event.preventDefault();
     let cityInput = $("input").val();
-    console.log(cityInput);
+    // console.log(cityInput);
 
-    // localStorage.setItem('city', JSON.stringify(cityInput));
     // creating divs and prepend every time a new value is inputted
     let newDiv = $("<div>");
-    newDiv.attr('class', 'card');
+    newDiv.attr('class', 'card m-1 p-3');
     newDiv.text(cityInput);
     $("#cityList").prepend(newDiv);
     
@@ -33,11 +32,14 @@ button.on("click", function(){
             
             // putting information into divs
             $("#cityName").text(cityInput.toUpperCase());
-            $("img").attr('src', 'http://openweathermap.org/img/wn/'+ iconValue +'.png');
+            let imgTag = $("<img>");
+            imgTag.attr('src', 'http://openweathermap.org/img/wn/'+ iconValue +'.png');
             $(".temp").text("Temperature(F): " + Math.round(10 * temperature )/10);
             $(".humidity").text("Humidity: " + humidity);
             $(".wind").text("Wind Speed: " + windSpeed);
             console.log(iconValue);
+            $("#cityName").append(imgTag);
+
             
             // grabbing latitude and longitude
             // let lat = response.coord.lat;
@@ -57,43 +59,69 @@ button.on("click", function(){
     // console.log(latUV, lonUV);
     let locationID = localStorage.getItem('cityID');
 
-    let UVUrl = "https://api.openweathermap.org/data/2.5/forecast?id=" + locationID + "&appid=c04a879c0afe257f716ea92825ba01c6";
+    let fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + locationID + "&appid=c04a879c0afe257f716ea92825ba01c6";
 
     $.ajax({
-        url: UVUrl,
+        url: fiveDayURL,
         method: "GET"
     }).then(function(response){
         console.log(response);
 
-        // let dates = response.list[i].dt_txt;
-        let tempKelvin = response.list[i].main.temp;
-        let tempFive = Math.round(10 * tempKelvin )/10;
-        let humidityFive = response.list[i].main.humidity;
+        // first forecast
+        let tempKelvinOne = response.list[0].main.temp;
+        let tempOne = Math.round(10 * tempKelvinOne )/10;
+        let humidityOne = response.list[0].main.humidity;
+        let iconOne = response.list[0].weather[0].icon;
 
-        // console.log(dates);
-        console.log(tempFive);
-        console.log(humidityFive);
-        for (var i = 0; i < response[5]; i++){
-          
-            
-            let newDates = $("<div>")
-            newDates.attr('class', 'card');
-            newDates.text(dates);
-            $("#fiveDay").append(newDates);
+        $(".firstTemp").text("Temp(F): " + tempOne);
+        $(".firstHumidity").text("Humidity: " + humidityOne);
+        let firstImg = $("<img>").attr('src', 'http://openweathermap.org/img/wn/'+ iconOne +'.png');
+        $("#first").prepend(firstImg);
+        
+        // second forecast
+        let tempKelvinTwo= response.list[9].main.temp;
+        let tempTwo = Math.round(10 * tempKelvinTwo )/10;
+        let humidityTwo = response.list[9].main.humidity;
+        let iconTwo = response.list[9].weather[0].icon
 
-            let newTempFive = $("<div>")
-            newTempFive.attr('class', 'card');
-            newTempFive.text(tempFive);
-            $("#fiveDay").append(newTempFive);
+        $(".secondTemp").text("Temp(F): "+ tempTwo);
+        $(".secondHumidity").text("Humidity: " + humidityTwo);
+        let secImg = $("<img>").attr('src', 'http://openweathermap.org/img/wn/'+ iconTwo +'.png');
+        $("#second").prepend(secImg);
 
-            let newHumidityFive = $("<div>")
-            newHumidityFive.attr('class', 'card');
-            newHumidityFive.text(humidityFive);
-            $("#fiveDay").append(newHumidityFive);
+        // third forecast
+        let tempKelvinThree= response.list[18].main.temp;
+        let tempThree = Math.round(10 * tempKelvinThree )/10;
+        let humidityThree = response.list[18].main.humidity;
+        let iconThree = response.list[18].weather[0].icon
 
-            
-           
-        }
+        $(".thirdTemp").text("Temp(F): "+ tempThree);
+        $(".thirdHumidity").text("Humidity: " + humidityThree);
+        let thirdImg = $("<img>").attr('src', 'http://openweathermap.org/img/wn/'+ iconThree +'.png');
+        $("#third").prepend(thirdImg);
+        
+        // four forecast
+        let tempKelvinFour= response.list[27].main.temp;
+        let tempFour = Math.round(10 * tempKelvinFour )/10;
+        let humidityFour = response.list[27].main.humidity;
+        let iconFour = response.list[27].weather[0].icon
+
+        $(".fourthTemp").text("Temp(F): "+ tempFour);
+        $(".fourthHumidity").text("Humidity: " + humidityFour);
+        let fourthImg = $("<img>").attr('src', 'http://openweathermap.org/img/wn/'+ iconFour +'.png');
+        $("#fourth").prepend(fourthImg);
+
+        // five forecast
+        let tempKelvinFive= response.list[36].main.temp;
+        let tempFive = Math.round(10 * tempKelvinFive )/10;
+        let humidityFive = response.list[36].main.humidity;
+        let iconFive = response.list[36].weather[0].icon
+
+        $(".fiveTemp").text("Temp(F): "+ tempFive);
+        $(".fiveHumidity").text("Humidity: " + humidityFive);
+        let fiveImg = $("<img>").attr('src', 'http://openweathermap.org/img/wn/'+ iconFive +'.png');
+        $("#five").prepend(fiveImg);
+
     })
 })
 
