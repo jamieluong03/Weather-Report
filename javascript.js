@@ -1,4 +1,31 @@
-let API = "6ac283a43a431dd845471805e447dc5f";
+let button = $(".btn");
+let input = $("input");
+
+// button.on("click", function(){
+//     // let cityInput = $("input").val();
+//     // let cities = JSON.parse(localStorage.setItem('city', JSON.stringify(cityInput)));
+//     // console.log(cityInput);
+
+//     // let li = $("<li>");
+//     // let ul = $("ul")
+
+   
+// })
+
+    let cityName = 'London';
+    let API = "c04a879c0afe257f716ea92825ba01c6";
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + API;
+    
+    $.ajax({
+        url: weatherURL,
+        method: "GET"
+      })
+        .then(function(response) {
+            console.log(response);
+
+        });
+
+
 
 
 
