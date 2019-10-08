@@ -9,3 +9,7 @@ The top screen will show the weather report for the current date, which includes
 The bottom screen will show the weather report for the following five days with the same information.
 
 Every time the user enters a new City into the search bar, the history is saved as a list on the left column.
+
+
+## Link
+https://jamieluong03.github.io/Weather-Report/
