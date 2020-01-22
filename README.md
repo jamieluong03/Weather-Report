@@ -1,15 +1,23 @@
 # Weather-Report
 
-In this Weather Dashboard, the user is able to enter a City name in the search bar and click search.
+In this Weather Dashboard, the user is able to enter search for specific weather information regarding the city they type in.
 
-Once the search is initiated, it will call the city's weather data from Open Weather and appear in the screens on the right.
+The information provided in a 5-day forecast form are:
+* Temperature
+* Humidity
+* Windspeed
+* Weather Icon (Cloudy/Sunny/Rainy)
 
-The top screen will show the weather report for the current date, which includes information such as temperature, humidity, and windspeed.
+The search history is saved as a list on the left column as the user searches forecast information for other cities.
 
-The bottom screen will show the weather report for the following five days with the same information.
 
-Every time the user enters a new City into the search bar, the history is saved as a list on the left column.
+<img src="weather.png">
 
+
+## Technologies Used
+* HTML, Bootstrap/CSS, Moment.js, Javascript, jQuery, REST API, AJAX
+* API from Open Weather
 
 ## Link
-https://jamieluong03.github.io/Weather-Report/
+This app is deployed on GitHub Pages.
+* https://jamieluong03.github.io/Weather-Report/
